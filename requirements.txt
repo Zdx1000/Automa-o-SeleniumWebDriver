@@ -1,0 +1,6 @@
+pandas
+selenium
+webdriver-manager
+pwinput
+openpyxl
+auto-py-to-exe

@@ -1,0 +1,49 @@
+{
+    "HERNANE": {
+        "senha": "Bruna@18",
+        "permissoes": []
+    },
+    "BRUNO": {
+        "senha": "Bruno@3007",
+        "permissoes": []
+    },
+    "OSIAS": {
+        "senha": "fogao@100",
+        "permissoes": []
+    },
+    "FABIO": {
+        "senha": "martins2008",
+        "permissoes": [
+            "1",
+            "5",
+            "9"
+        ]
+    },
+    "HUDSON": {
+        "senha": "Ibah18010127#",
+        "permissoes": []
+    },
+    "DANYLLO": {
+        "senha": "88272361",
+        "permissoes": [
+            "ADM"
+        ]
+    },
+    "ADM": {
+        "senha": "adm@D@88272361dm*96498496@88272361dm@adm",
+        "permissoes": [
+            "ADM"
+        ]
+    },
+    "TATIANA": {
+        "senha": "Lola@03011309",
+        "permissoes": []
+    },
+    "EVALDO": {
+        "senha": "martins01@2025",
+        "permissoes": [
+            "1",
+            "2"
+        ]
+    }
+}
