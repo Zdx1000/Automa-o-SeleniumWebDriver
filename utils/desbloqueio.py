@@ -224,6 +224,7 @@ def desbloqueio():
                 motivos = navegador.find_element(By.XPATH,
                                                  '/html/body/div[1]/div[2]/div/div/div/hj-flex-container/div/hj-flex-grow/div/hj-flex-scroll/div/div[2]/div[4]/div[1]/div/hj-flex-container/div/hj-flex-grow/div/hj-flex-scroll/div/hj-template/div/hj-field-table/div/hj-field-table-row[2]/div/hj-field-group/div/div[2]/hj-field-group-row[3]/div/hj-field-cell/div/hj-field-control/div/div/span[1]/hj-template/div/hj-dropdownlist/span')
                 motivos.click()
+                
 
             if escolha == 1:
                 esc = navegador.find_elements(By.CSS_SELECTOR,
