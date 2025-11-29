@@ -7535,3 +7535,4 @@ Item incluso: 111465 Qtde: 6 Erro ao incluir no Documento:  6565569 - Status: FA
 Item incluso: 110504 Qtde: 6 inclusa com sucesso no Documento:  6565569 - Status: SUCESSO
 Item incluso: 108364 Qtde: 6 inclusa com sucesso no Documento:  6565569 - Status: SUCESSO
 Item incluso: 112896 Qtde: 48 Erro ao incluir no Documento:  6565569 - Status: FALHA
+Item incluso: 110506 Qtde: 132 Erro ao incluir no Documento:  41515 - Status: FALHA

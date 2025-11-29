@@ -12,6 +12,7 @@ from utils.bloqueado_avancado import Bloqueado_avancado
 from utils.excluir_apanha import excluir_apanha
 from utils.usuarios import Administrador
 from utils.classArmazenagem import classArmazenagem
+from utils.data_de_validade_lote import Lote
 
 def tabela(username, permissoes_usuario):
     from servidor import login_user, main
@@ -29,6 +30,7 @@ def tabela(username, permissoes_usuario):
         "9": fechar_com_divergencia,
         "10": excluir_apanha,
         "11": classArmazenagem,
+        "12": Lote,
         "ADM": Administrador
     }
     try:
@@ -57,6 +59,7 @@ def tabela(username, permissoes_usuario):
                 "\n\033[92m➤\033[0m 9  •  Fechar ordem com divergência"
                 "\n\033[92m➤\033[0m 10 •  Excluir endereços vazios"
                 "\n\033[92m➤\033[0m 11 •  Itens sem classe de armazenagem"
+                "\n\033[92m➤\033[0m 12 •  Data de validade e lote"
                 "\n────────────────────────────────────────────────────────"
                 "\n\033[91m➤\033[0m 0  •  Voltar ao menu anterior"
             )
