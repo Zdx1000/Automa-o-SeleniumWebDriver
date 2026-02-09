@@ -36,6 +36,7 @@ def inclusao_pedidos_ajustes():
 ╚════════════════════════════════════════════╝
     [1] 4 - AJUSTE SOBRA ESTOQUE
     [2] 8 - AJUSTE FALTA ESTOQUE
+    [3] 4 - AJUSTE SOBRA ESTOQUE - CDA LOG
     ''')
 
     print(f"Escolha uma opção\n")
@@ -49,6 +50,7 @@ def inclusao_pedidos_ajustes():
 ╚════════════════════════════════════════════╝
     [1] 30212 - Separação Carga Grossa
     [2] 30213 - Separação Carga Fracionada
+    [3] 30219 - CDA Logistico
     ''')
 
     print(f"Escolha uma opção\n")
@@ -190,6 +192,14 @@ def inclusao_pedidos_ajustes():
                     if tipo.accessible_name == "8 - AJUSTE FALTA ESTOQUE":
                         tipo.click()
                         break
+            if tipo_ajuste == "3":
+
+                sleep(0.2)
+                tipo_ = navegador.find_elements(By.CSS_SELECTOR, "li.k-item")
+                for tipo in tipo_:
+                    if tipo.accessible_name == "4 - AJUSTE SOBRA ESTOQUE":
+                        tipo.click()
+                        break
 
             motivo_campo = navegador.find_elements(By.CSS_SELECTOR,
                                                 "span.k-input")
@@ -214,11 +224,23 @@ def inclusao_pedidos_ajustes():
                         tipo.click()
                         break
 
+            if tipo_ajuste == "3":
+
+                sleep(0.2)
+                tipo_ = navegador.find_elements(By.CSS_SELECTOR, "li.k-item")
+                for tipo in tipo_:
+                    if tipo.accessible_name == "122 - AJUSTE SME":
+                        print(tipo.accessible_name)
+                        tipo.click()
+                        break
+
 
             cod_merc = navegador.find_elements(By.CSS_SELECTOR,
                                               "input.k-textbox")
             cod_merc[4].clear()
             cod_merc[4].send_keys(item)
+
+            sleep(999999)
 
             sleep(0.5)
 
@@ -243,6 +265,12 @@ def inclusao_pedidos_ajustes():
                 tipo_ = navegador.find_elements(By.CSS_SELECTOR, "li.k-item")
                 for tipo in tipo_:
                     if tipo.accessible_name == "30213 - Separação Carga Fracionada":
+                        tipo.click()
+                        break
+            if centro_custo == "3":
+                tipo_ = navegador.find_elements(By.CSS_SELECTOR, "li.k-item")
+                for tipo in tipo_:
+                    if tipo.accessible_name == "30219 - CDA Logistico":
                         tipo.click()
                         break
 
