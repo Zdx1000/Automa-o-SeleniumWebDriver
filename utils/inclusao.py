@@ -230,7 +230,6 @@ def inclusao_pedidos_ajustes():
                 tipo_ = navegador.find_elements(By.CSS_SELECTOR, "li.k-item")
                 for tipo in tipo_:
                     if tipo.accessible_name == "122 - AJUSTE SME":
-                        print(tipo.accessible_name)
                         tipo.click()
                         break
 
@@ -240,7 +239,6 @@ def inclusao_pedidos_ajustes():
             cod_merc[4].clear()
             cod_merc[4].send_keys(item)
 
-            sleep(999999)
 
             sleep(0.5)
 
