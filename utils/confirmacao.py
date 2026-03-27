@@ -5,6 +5,7 @@ import pandas as pd
 from utils.shared import historico_funcoes, registrar_progresso
 from utils.retornar import cancelar_inputs
 from utils.navegador import navegador_google
+from utils.selenium_utils import clicar_quando_estavel
 from time import sleep
 
 
@@ -122,7 +123,7 @@ def confirmacao_de_pedido_ajuste():
         sheet_data.head()
         itens = sheet_data['Itens']
     except:
-        print(f"Erro  ao acessar o arquivo Banco de dados.xlsx!!!")
+        print("Erro  ao acessar o arquivo Banco de dados.xlsx!!!")
         try:
             navegador.quit()
         except:
@@ -131,34 +132,21 @@ def confirmacao_de_pedido_ajuste():
 
     for item in itens:
         try:
-            sleep(3)
-            if cont == 0:
-                filtro = WebDriverWait(navegador, 40).until(
-                    lambda driver: driver.find_element(By.CSS_SELECTOR,
-                                                    'th[data-title="Cód. Merc."] a.k-header-column-menu span.k-icon.k-i-more-vertical').is_displayed() and
-                                driver.find_element(By.CSS_SELECTOR,
-                                                    'th[data-title="Cód. Merc."] a.k-header-column-menu span.k-icon.k-i-more-vertical').is_enabled()
-                )
-                filtro = navegador.find_element(By.CSS_SELECTOR,
-                                                'th[data-title="Cód. Merc."] a.k-header-column-menu span.k-icon.k-i-more-vertical')
-                filtro.click()
-            else:
-                filtro = WebDriverWait(navegador, 40).until(
-                    lambda driver: driver.find_element(By.CSS_SELECTOR,
-                                                    'th[data-title="Cód. Merc."] a.k-header-column-menu span.k-icon.k-i-filter').is_displayed() and
-                                driver.find_element(By.CSS_SELECTOR,
-                                                    'th[data-title="Cód. Merc."] a.k-header-column-menu span.k-icon.k-i-filter').is_enabled()
-                )
-                filtro = navegador.find_element(By.CSS_SELECTOR,
-                                                'th[data-title="Cód. Merc."] a.k-header-column-menu span.k-icon.k-i-filter')
-                filtro.click()
-        
-            sleep(1)
-
-            filtro_menu = WebDriverWait(navegador, 10).until(
-                EC.element_to_be_clickable((By.CSS_SELECTOR, "li.k-filter-item span.k-link"))
+            sleep(2)
+            icone_filtro = "k-i-more-vertical" if cont == 0 else "k-i-filter"
+            filtro_locator = (
+                By.XPATH,
+                f'//th[@data-title="Cód. Merc."]//a[contains(@class, "k-header-column-menu")][.//span[contains(@class, "{icone_filtro}")]]',
             )
-            filtro_menu.click()
+            clicar_quando_estavel(navegador, filtro_locator, timeout=40)
+        
+            sleep(0.5)
+
+            filtro_menu_locator = (
+                By.CSS_SELECTOR,
+                "li.k-filter-item span.k-link",
+            )
+            clicar_quando_estavel(navegador, filtro_menu_locator, timeout=10)
 
             sleep(1)
             texto_para_inserir = item
@@ -168,14 +156,13 @@ def confirmacao_de_pedido_ajuste():
                 campo.dispatchEvent(new Event('input', { bubbles: true }));
                 campo.dispatchEvent(new Event('change', { bubbles: true }));
             """, texto_para_inserir)
-            sleep(0.5)
+            sleep(1)
 
-            filter_cl = WebDriverWait(navegador, 20).until(
-                lambda driver: driver.find_element(By.CSS_SELECTOR, 'button.k-button').is_displayed() and
-                               driver.find_element(By.CSS_SELECTOR, 'button.k-button').is_enabled()
+            clicar_quando_estavel(
+                navegador,
+                (By.CSS_SELECTOR, 'button.k-button'),
+                timeout=20,
             )
-            filter_cl = navegador.find_element(By.CSS_SELECTOR, 'button.k-button')
-            filter_cl.click()
             sleep(2)
             contat = 0
             while True:
@@ -185,7 +172,7 @@ def confirmacao_de_pedido_ajuste():
                     break
                 except:
                     contat += 1
-                    if contat == 10:
+                    if contat == 5:
                         break
                     sleep(1)
                     pass
@@ -314,6 +301,7 @@ def confirmacao_de_pedido_ajuste():
                         sleep(0.5)
                         pass
         except Exception as e:
+            print(f"Erro ao confirmar o item {item}: {str(e)}")
             conts += 1
 
             porcentagem = (cont / len(itens)) * 100
