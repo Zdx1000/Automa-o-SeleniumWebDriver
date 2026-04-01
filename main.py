@@ -13,6 +13,7 @@ from utils.excluir_apanha import excluir_apanha
 from utils.usuarios import Administrador
 from utils.classArmazenagem import classArmazenagem
 from utils.data_de_validade_lote import Lote
+from utils.incluir_ordem import incluir_item_ordem
 
 def tabela(username, permissoes_usuario):
     from servidor import login_user, main
@@ -31,6 +32,7 @@ def tabela(username, permissoes_usuario):
         "10": excluir_apanha,
         "11": classArmazenagem,
         "12": Lote,
+        "13": incluir_item_ordem,
         "ADM": Administrador
     }
     try:
@@ -60,6 +62,7 @@ def tabela(username, permissoes_usuario):
                 "\n\033[92m➤\033[0m 10 •  Excluir endereços vazios"
                 "\n\033[92m➤\033[0m 11 •  Itens sem classe de armazenagem"
                 "\n\033[92m➤\033[0m 12 •  Data de validade e lote"
+                "\n\033[92m➤\033[0m 13 •  Incluir item em ordem recebimento"
                 "\n────────────────────────────────────────────────────────"
                 "\n\033[91m➤\033[0m 0  •  Voltar ao menu anterior"
             )
