@@ -5,6 +5,7 @@ from utils.shared import historico_funcoes, registrar_progresso
 from utils.retornar import cancelar_inputs
 from utils.navegador import navegador_google
 from time import sleep
+from utils.bloqueadao import BloqueioDAO
 
 
 def desbloqueio():
@@ -128,125 +129,12 @@ def desbloqueio():
 
     for item_, quantidade_ in zip(itens1, quantidades1):
         try:
-            while True:
-                try:
-                    consus = WebDriverWait(navegador, 20).until(
-                        lambda driver: driver.find_element(By.CSS_SELECTOR, 'input.k-textbox').is_displayed() and
-                                       driver.find_element(By.CSS_SELECTOR, 'input.k-textbox').is_enabled()
-                    )
-                    consus = navegador.find_element(By.CSS_SELECTOR, 'input.k-textbox')
-                    consus.send_keys(item_)
-                    break
-                except:
-                    pass
 
-            # Consultar
-            consultar = WebDriverWait(navegador, 20).until(
-                lambda driver: driver.find_element(By.LINK_TEXT,
-                                                   'Consultar').is_displayed() and
-                               driver.find_element(By.LINK_TEXT,
-                                                   'Consultar').is_enabled()
-            )
-            consultar = navegador.find_element(By.LINK_TEXT, 'Consultar')
-            consultar.click()
-
-            sleep(1.5)
-            desbloquear = WebDriverWait(navegador, 20).until(
-                lambda driver: driver.find_element(By.LINK_TEXT,
-                                                   'Desbloqueio').is_displayed() and
-                               driver.find_element(By.LINK_TEXT,
-                                                   'Desbloqueio').is_enabled()
-            )
-            desbloquear = navegador.find_element(By.LINK_TEXT,
-                                                 'Desbloqueio')
-            desbloquear.click()
-
-            sleep(1)
-            if escolha == 1 or escolha == 2:
-                click_desbloq = WebDriverWait(navegador, 20).until(
-                    lambda driver: driver.find_element(By.XPATH,
-                                                       '/html/body/div[1]/div[2]/div/div/div/hj-flex-container/div/hj-flex-grow/div/hj-flex-scroll/div/div[2]/div[3]/div[1]/hj-flex-container/div/hj-flex-grow/div/div/hj-grid/div[2]/div/div[2]/table/tbody/tr[1]/td[10]/a/hj-label').is_displayed() and
-                                   driver.find_element(By.XPATH,
-                                                       '/html/body/div[1]/div[2]/div/div/div/hj-flex-container/div/hj-flex-grow/div/hj-flex-scroll/div/div[2]/div[3]/div[1]/hj-flex-container/div/hj-flex-grow/div/div/hj-grid/div[2]/div/div[2]/table/tbody/tr[1]/td[10]/a/hj-label').is_enabled()
-                )
-                click_desbloq = navegador.find_element(By.XPATH,
-                                                       '/html/body/div[1]/div[2]/div/div/div/hj-flex-container/div/hj-flex-grow/div/hj-flex-scroll/div/div[2]/div[3]/div[1]/hj-flex-container/div/hj-flex-grow/div/div/hj-grid/div[2]/div/div[2]/table/tbody/tr[1]/td[10]/a/hj-label')
-                click_desbloq.click()
-
-                # Quantidade a bloquear
-                qtd_bloq = WebDriverWait(navegador, 20).until(
-                    lambda driver: driver.find_element(By.XPATH,
-                                                       '/html/body/div[1]/div[2]/div/div/div/hj-flex-container/div/hj-flex-grow/div/hj-flex-scroll/div/div[2]/div[4]/div[1]/div/hj-flex-container/div/hj-flex-grow/div/hj-flex-scroll/div/hj-template/div/hj-field-table/div/hj-field-table-row[2]/div/hj-field-group/div/div[2]/hj-field-group-row[2]/div/hj-field-cell/div/hj-field-control/div/div/span[1]/hj-template/div/hj-textbox/input').is_displayed() and
-                                   driver.find_element(By.XPATH,
-                                                       '/html/body/div[1]/div[2]/div/div/div/hj-flex-container/div/hj-flex-grow/div/hj-flex-scroll/div/div[2]/div[4]/div[1]/div/hj-flex-container/div/hj-flex-grow/div/hj-flex-scroll/div/hj-template/div/hj-field-table/div/hj-field-table-row[2]/div/hj-field-group/div/div[2]/hj-field-group-row[2]/div/hj-field-cell/div/hj-field-control/div/div/span[1]/hj-template/div/hj-textbox/input').is_enabled()
-                )
-                qtd_bloq = navegador.find_element(By.XPATH,
-                                                  '/html/body/div[1]/div[2]/div/div/div/hj-flex-container/div/hj-flex-grow/div/hj-flex-scroll/div/div[2]/div[4]/div[1]/div/hj-flex-container/div/hj-flex-grow/div/hj-flex-scroll/div/hj-template/div/hj-field-table/div/hj-field-table-row[2]/div/hj-field-group/div/div[2]/hj-field-group-row[2]/div/hj-field-cell/div/hj-field-control/div/div/span[1]/hj-template/div/hj-textbox/input')
-                qtd_bloq.send_keys(quantidade_)
-
-                motivos = WebDriverWait(navegador, 20).until(
-                    lambda driver: driver.find_element(By.XPATH,
-                                                       '/html/body/div[1]/div[2]/div/div/div/hj-flex-container/div/hj-flex-grow/div/hj-flex-scroll/div/div[2]/div[4]/div[1]/div/hj-flex-container/div/hj-flex-grow/div/hj-flex-scroll/div/hj-template/div/hj-field-table/div/hj-field-table-row[2]/div/hj-field-group/div/div[2]/hj-field-group-row[3]/div/hj-field-cell/div/hj-field-control/div/div/span[1]/hj-template/div/hj-dropdownlist/span').is_displayed() and
-                                   driver.find_element(By.XPATH,
-                                                       '/html/body/div[1]/div[2]/div/div/div/hj-flex-container/div/hj-flex-grow/div/hj-flex-scroll/div/div[2]/div[4]/div[1]/div/hj-flex-container/div/hj-flex-grow/div/hj-flex-scroll/div/hj-template/div/hj-field-table/div/hj-field-table-row[2]/div/hj-field-group/div/div[2]/hj-field-group-row[3]/div/hj-field-cell/div/hj-field-control/div/div/span[1]/hj-template/div/hj-dropdownlist/span').is_enabled()
-                )
-                motivos = navegador.find_element(By.XPATH,
-                                                 '/html/body/div[1]/div[2]/div/div/div/hj-flex-container/div/hj-flex-grow/div/hj-flex-scroll/div/div[2]/div[4]/div[1]/div/hj-flex-container/div/hj-flex-grow/div/hj-flex-scroll/div/hj-template/div/hj-field-table/div/hj-field-table-row[2]/div/hj-field-group/div/div[2]/hj-field-group-row[3]/div/hj-field-cell/div/hj-field-control/div/div/span[1]/hj-template/div/hj-dropdownlist/span')
-                motivos.click()
-            elif escolha == 3:
-                click_desbloq = WebDriverWait(navegador, 20).until(
-                    lambda driver: driver.find_element(By.XPATH,
-                                                       '/html/body/div[1]/div[2]/div/div/div/hj-flex-container/div/hj-flex-grow/div/hj-flex-scroll/div/div[2]/div[3]/div[1]/hj-flex-container/div/hj-flex-grow/div/div/hj-grid/div[2]/div/div[2]/table/tbody/tr[2]/td[10]/a/hj-label').is_displayed() and
-                                   driver.find_element(By.XPATH,
-                                                       '/html/body/div[1]/div[2]/div/div/div/hj-flex-container/div/hj-flex-grow/div/hj-flex-scroll/div/div[2]/div[3]/div[1]/hj-flex-container/div/hj-flex-grow/div/div/hj-grid/div[2]/div/div[2]/table/tbody/tr[2]/td[10]/a/hj-label').is_enabled()
-                )
-                click_desbloq = navegador.find_element(By.XPATH,
-                                                       '/html/body/div[1]/div[2]/div/div/div/hj-flex-container/div/hj-flex-grow/div/hj-flex-scroll/div/div[2]/div[3]/div[1]/hj-flex-container/div/hj-flex-grow/div/div/hj-grid/div[2]/div/div[2]/table/tbody/tr[2]/td[10]/a/hj-label')
-                click_desbloq.click()
-
-                # Quantidade a bloquear
-                qtd_bloq = WebDriverWait(navegador, 20).until(
-                    lambda driver: driver.find_element(By.XPATH,
-                                                       '/html/body/div[1]/div[2]/div/div/div/hj-flex-container/div/hj-flex-grow/div/hj-flex-scroll/div/div[2]/div[4]/div[1]/div/hj-flex-container/div/hj-flex-grow/div/hj-flex-scroll/div/hj-template/div/hj-field-table/div/hj-field-table-row[2]/div/hj-field-group/div/div[2]/hj-field-group-row[2]/div/hj-field-cell/div/hj-field-control/div/div/span[1]/hj-template/div/hj-textbox/input').is_displayed() and
-                                   driver.find_element(By.XPATH,
-                                                       '/html/body/div[1]/div[2]/div/div/div/hj-flex-container/div/hj-flex-grow/div/hj-flex-scroll/div/div[2]/div[4]/div[1]/div/hj-flex-container/div/hj-flex-grow/div/hj-flex-scroll/div/hj-template/div/hj-field-table/div/hj-field-table-row[2]/div/hj-field-group/div/div[2]/hj-field-group-row[2]/div/hj-field-cell/div/hj-field-control/div/div/span[1]/hj-template/div/hj-textbox/input').is_enabled()
-                )
-                qtd_bloq = navegador.find_element(By.XPATH,
-                                                  '/html/body/div[1]/div[2]/div/div/div/hj-flex-container/div/hj-flex-grow/div/hj-flex-scroll/div/div[2]/div[4]/div[1]/div/hj-flex-container/div/hj-flex-grow/div/hj-flex-scroll/div/hj-template/div/hj-field-table/div/hj-field-table-row[2]/div/hj-field-group/div/div[2]/hj-field-group-row[2]/div/hj-field-cell/div/hj-field-control/div/div/span[1]/hj-template/div/hj-textbox/input')
-                qtd_bloq.send_keys(quantidade_)
-
-                motivos = WebDriverWait(navegador, 20).until(
-                    lambda driver: driver.find_element(By.XPATH,
-                                                       '/html/body/div[1]/div[2]/div/div/div/hj-flex-container/div/hj-flex-grow/div/hj-flex-scroll/div/div[2]/div[4]/div[1]/div/hj-flex-container/div/hj-flex-grow/div/hj-flex-scroll/div/hj-template/div/hj-field-table/div/hj-field-table-row[2]/div/hj-field-group/div/div[2]/hj-field-group-row[3]/div/hj-field-cell/div/hj-field-control/div/div/span[1]/hj-template/div/hj-dropdownlist/span').is_displayed() and
-                                   driver.find_element(By.XPATH,
-                                                       '/html/body/div[1]/div[2]/div/div/div/hj-flex-container/div/hj-flex-grow/div/hj-flex-scroll/div/div[2]/div[4]/div[1]/div/hj-flex-container/div/hj-flex-grow/div/hj-flex-scroll/div/hj-template/div/hj-field-table/div/hj-field-table-row[2]/div/hj-field-group/div/div[2]/hj-field-group-row[3]/div/hj-field-cell/div/hj-field-control/div/div/span[1]/hj-template/div/hj-dropdownlist/span').is_enabled()
-                )
-                motivos = navegador.find_element(By.XPATH,
-                                                 '/html/body/div[1]/div[2]/div/div/div/hj-flex-container/div/hj-flex-grow/div/hj-flex-scroll/div/div[2]/div[4]/div[1]/div/hj-flex-container/div/hj-flex-grow/div/hj-flex-scroll/div/hj-template/div/hj-field-table/div/hj-field-table-row[2]/div/hj-field-group/div/div[2]/hj-field-group-row[3]/div/hj-field-cell/div/hj-field-control/div/div/span[1]/hj-template/div/hj-dropdownlist/span')
-                motivos.click()
-                
-
-            if escolha == 1:
-                esc = navegador.find_elements(By.CSS_SELECTOR,
-                                              'li.k-item')
-                for x in esc:
-                    if "01 - Merc.Perdida" == x.text:
-                        x.click()
-                        break
-            elif escolha == 2:
-                esc = navegador.find_elements(By.CSS_SELECTOR,
-                                              'li.k-item')
-                for x in esc:
-                    if "101 - SALDO" == x.text:
-                        x.click()
-                        break
-            elif escolha == 3:
-                esc = navegador.find_elements(By.CSS_SELECTOR,
-                                              'li.k-item')
-                for x in esc:
-                    if "99 - Dep. Negociacao" == x.text:
-                        x.click()
-                        break
+            try:
+                BloqueioDAO(navegador, item_, quantidade_, tipo=escolha).processo_desbloquear()
+            except Exception as e:
+                print(f"Erro ao processar o item {item_}: {e}")
+                break            
 
             if escolha == 1:
                 print(
@@ -261,22 +149,6 @@ def desbloqueio():
                 print(
                     f"Item:[{item_}] Qtde:[{quantidade_}] Desbloqueado com sucesso!! [Suspenso em Negociação]")
                 registrar_progresso(text=f"Desbloqueio realizado com sucesso no Suspenso em Negociação: {item_} -> Qtde: ", endereco=quantidade_, sucesso=True)
-
-            feito = navegador.find_element(
-                By.LINK_TEXT,
-                'Desbloquear'
-            )
-            sleep(1)
-            feito.click()
-
-            sleep(1)
-
-            ok4 = WebDriverWait(navegador, 20).until(
-                lambda driver: driver.find_element(By.CLASS_NAME, 'hj-dlg-button').is_displayed() and
-                               driver.find_element(By.CLASS_NAME, 'hj-dlg-button').is_enabled()
-            )
-            ok4 = navegador.find_element(By.CLASS_NAME, 'hj-dlg-button')
-            ok4.click()
             
         except:
             if escolha == 1:

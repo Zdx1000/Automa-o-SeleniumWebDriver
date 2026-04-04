@@ -8010,3 +8010,48 @@ Bloqueio realizado com sucesso no Suspenso em vendas: 108309 -> Qtde:  6 - Statu
 Bloqueio realizado com sucesso no Suspenso em vendas: 112612 -> Qtde:  55 - Status: SUCESSO
 Bloqueio realizado com sucesso no Suspenso em vendas: 3021424 -> Qtde:  62 - Status: SUCESSO
 Bloqueio realizado com sucesso no Suspenso em vendas: 507772 -> Qtde:  53 - Status: SUCESSO
+Bloqueio realizado com sucesso no Suspenso em vendas: 210240 -> Qtde:  1 - Status: SUCESSO
+Bloqueio realizado com sucesso no Suspenso em vendas: 107941 -> Qtde:  1 - Status: SUCESSO
+Bloqueio realizado com sucesso no Suspenso em vendas: 1703502 -> Qtde:  1 - Status: SUCESSO
+Bloqueio realizado com sucesso no Suspenso em vendas: 4302399 -> Qtde:  1 - Status: SUCESSO
+Desbloqueio realizado com sucesso no Suspenso em vendas: 210240 -> Qtde:  1 - Status: SUCESSO
+Desbloqueio realizado com sucesso no Suspenso em vendas: 107941 -> Qtde:  1 - Status: SUCESSO
+Desbloqueio realizado com sucesso no Suspenso em vendas: 1703502 -> Qtde:  1 - Status: SUCESSO
+Desbloqueio realizado com sucesso no Suspenso em vendas: 4302399 -> Qtde:  1 - Status: SUCESSO
+Bloqueio realizado com sucesso no Suspenso em vendas: 210240 -> Qtde:  1 - Status: SUCESSO
+Bloqueio realizado com sucesso no Suspenso em vendas: 107941 -> Qtde:  1 - Status: SUCESSO
+Bloqueio realizado com sucesso no Suspenso em vendas: 1703502 -> Qtde:  1 - Status: SUCESSO
+Bloqueio realizado com sucesso no Suspenso em vendas: 4302399 -> Qtde:  1 - Status: SUCESSO
+Erro ao Desbloqueio no Suspenso em vendas: 210240 -> Qtde:  1 - Status: FALHA
+Erro ao Desbloqueio no Suspenso em vendas: 210240 -> Qtde:  1 - Status: FALHA
+Erro ao Desbloqueio no Suspenso em vendas: 210240 -> Qtde:  1 - Status: FALHA
+Erro ao Desbloqueio no Suspenso em vendas: 210240 -> Qtde:  1 - Status: FALHA
+Erro ao Desbloqueio no Suspenso em vendas: 210240 -> Qtde:  1 - Status: FALHA
+Erro ao Desbloqueio no Suspenso em vendas: 210240 -> Qtde:  1 - Status: FALHA
+Desbloqueio realizado com sucesso no Suspenso em vendas: 210240 -> Qtde:  1 - Status: SUCESSO
+Desbloqueio realizado com sucesso no Suspenso em vendas: 107941 -> Qtde:  1 - Status: SUCESSO
+Desbloqueio realizado com sucesso no Suspenso em vendas: 1703502 -> Qtde:  1 - Status: SUCESSO
+Desbloqueio realizado com sucesso no Suspenso em vendas: 4302399 -> Qtde:  1 - Status: SUCESSO
+Tratativa Bloqueado do Item: [ 2219391 ] Suspenso em Vendas: [ 0 ], Negociação: [ 0 ], Saldo: [ 1 ]   - Status: SUCESSO
+Tratativa Bloqueado do Item: [ 2219795 ] Suspenso em Vendas: [ 0 ], Negociação: [ 0 ], Saldo: [ 5 ]   - Status: SUCESSO
+Tratativa Bloqueado do Item: [ 2222537 ] Suspenso em Vendas: [ 0 ], Negociação: [ 0 ], Saldo: [ 1 ]   - Status: SUCESSO
+Tratativa Bloqueado do Item: [ 2223639 ] Suspenso em Vendas: [ 0 ], Negociação: [ 0 ], Saldo: [ 1 ]   - Status: SUCESSO
+Tratativa Bloqueado do Item: [ 2223947 ] Suspenso em Vendas: [ 0 ], Negociação: [ 0 ], Saldo: [ 1 ]   - Status: SUCESSO
+Tratativa Bloqueado do Item: [ 508862 ] Suspenso em Vendas: [ 0 ], Negociação: [ 0 ], Saldo: [ 1 ]   - Status: SUCESSO
+Tratativa Bloqueado do Item: [ 2222215 ] Suspenso em Vendas: [ 0 ], Negociação: [ 0 ], Saldo: [ 3 ]   - Status: SUCESSO
+Tratativa Bloqueado do Item: [ 601673 ] Suspenso em Vendas: [ 0 ], Negociação: [ 0 ], Saldo: [ 4 ]   - Status: SUCESSO
+Tratativa Bloqueado do Item: [ 2309408 ] Suspenso em Vendas: [ 0 ], Negociação: [ 0 ], Saldo: [ 1 ]   - Status: SUCESSO
+Tratativa Bloqueado do Item: [ 2224241 ] Suspenso em Vendas: [ 0 ], Negociação: [ 0 ], Saldo: [ 1 ]   - Status: SUCESSO
+Tratativa Bloqueado do Item: [ 2224204 ] Suspenso em Vendas: [ 0 ], Negociação: [ 0 ], Saldo: [ 1 ]   - Status: SUCESSO
+Tratativa Bloqueado do Item: [ 3101572 ] Suspenso em Vendas: [ 0 ], Negociação: [ 0 ], Saldo: [ 4 ]   - Status: SUCESSO
+Tratativa Bloqueado do Item: [ 3100518 ] Suspenso em Vendas: [ 0 ], Negociação: [ 0 ], Saldo: [ 5 ]   - Status: SUCESSO
+Tratativa Bloqueado do Item: [ 2222429 ] Suspenso em Vendas: [ 0 ], Negociação: [ 0 ], Saldo: [ 1 ]   - Status: SUCESSO
+Tratativa Bloqueado do Item: [ 2222637 ] Suspenso em Vendas: [ 0 ], Negociação: [ 0 ], Saldo: [ 1 ]   - Status: SUCESSO
+Tratativa Bloqueado do Item: [ 2222975 ] Suspenso em Vendas: [ 0 ], Negociação: [ 0 ], Saldo: [ 2 ]   - Status: SUCESSO
+Tratativa Bloqueado do Item: [ 2223813 ] Suspenso em Vendas: [ 0 ], Negociação: [ 0 ], Saldo: [ 1 ]   - Status: SUCESSO
+Tratativa Bloqueado do Item: [ 1602242 ] Suspenso em Vendas: [ 0 ], Negociação: [ 0 ], Saldo: [ 5 ]   - Status: SUCESSO
+Tratativa Bloqueado do Item: [ 409924 ] Suspenso em Vendas: [ 0 ], Negociação: [ 0 ], Saldo: [ 1 ]   - Status: SUCESSO
+Tratativa Bloqueado do Item: [ 2219449 ] Suspenso em Vendas: [ 0 ], Negociação: [ 0 ], Saldo: [ 1 ]   - Status: SUCESSO
+Tratativa Bloqueado do Item: [ 2220796 ] Suspenso em Vendas: [ 0 ], Negociação: [ 1 ], Saldo: [ 5 ]   - Status: SUCESSO
+Tratativa Bloqueado do Item: [ 3021074 ] Suspenso em Vendas: [ 0 ], Negociação: [ 1 ], Saldo: [ 4 ]   - Status: SUCESSO
+Tratativa Bloqueado do Item: [ 2223147 ] Suspenso em Vendas: [ 0 ], Negociação: [ 1 ], Saldo: [ 2 ]   - Status: SUCESSO

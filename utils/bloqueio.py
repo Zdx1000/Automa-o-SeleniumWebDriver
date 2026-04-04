@@ -5,6 +5,7 @@ from utils.shared import historico_funcoes, registrar_progresso
 from utils.retornar import cancelar_inputs
 from utils.navegador import navegador_google
 from time import sleep
+from utils.bloqueadao import BloqueioDAO
 
 def bloqueio():
     from main import tabela
@@ -117,94 +118,12 @@ def bloqueio():
             tabela
 
         for item_s, quantidade_2 in zip(itens2, quantidades2):
-
-            while True:
-                try:
-                    consus = WebDriverWait(navegador, 20).until(
-                        lambda driver: driver.find_element(By.CSS_SELECTOR, 'input.k-textbox').is_displayed() and
-                                       driver.find_element(By.CSS_SELECTOR, 'input.k-textbox').is_enabled()
-                    )
-                    consus = navegador.find_element(By.CSS_SELECTOR, 'input.k-textbox')
-                    consus.send_keys(item_s)
-                    break
-                except:
-                    pass
-
-            # Consultar
-            consultar = WebDriverWait(navegador, 20).until(
-                lambda driver: driver.find_element(By.LINK_TEXT,
-                                                    'Consultar').is_displayed() and
-                                driver.find_element(By.LINK_TEXT,
-                                                    'Consultar').is_enabled()
-            )
-            consultar = navegador.find_element(By.LINK_TEXT, 'Consultar')
-            consultar.click()
-
-
-            bloquear = WebDriverWait(navegador, 20).until(
-                lambda driver: driver.find_element(By.LINK_TEXT,
-                                                    'Bloqueio').is_displayed() and
-                                driver.find_element(By.LINK_TEXT,
-                                                    'Bloqueio').is_enabled()
-            )
-            bloquear = navegador.find_element(By.LINK_TEXT,
-                                                'Bloqueio')
-            bloquear.click()
-            sleep(1)
-
-            estoque_cont = navegador.find_elements(By.CSS_SELECTOR,
-                                                    'input.k-textbox')
             
-            estoque_cont[1].clear()
-            sleep(0.5)
-            estoque_cont[1].send_keys("99999")
-
-
-
-            if escolha2 == 3:
-                qtde_bloq = navegador.find_elements(By.CSS_SELECTOR,
-                                                        'input.k-textbox')
-                
-                qtde_bloq[8].clear()
-                sleep(0.5)
-                qtde_bloq[8].send_keys(f"{quantidade_2}")
-
-            elif escolha2 == 1 or escolha2 == 2:
-                qtde_bloq = navegador.find_elements(By.CSS_SELECTOR,
-                                                        'input.k-textbox')
-                
-                qtde_bloq[7].clear()
-                sleep(0.5)
-                qtde_bloq[7].send_keys(f"{quantidade_2}")
-
-
-            if escolha2 == 2:
-                motivos = navegador.find_elements(By.CSS_SELECTOR,
-                                                    'span.k-input')
-                motivos[2].click()
-
-                sleep(0.5)
-
-                esc = navegador.find_elements(By.CSS_SELECTOR,
-                                'li.k-item')
-
-                for x in esc:
-                    if "101 - SALDO" == x.text:
-                        x.click()
-                        break
-            if escolha2 == 3:
-                motivos = navegador.find_elements(By.CSS_SELECTOR,
-                                                    'span.k-input')
-                motivos[2].click()
-
-                sleep(0.5)
-
-                esc = navegador.find_elements(By.CSS_SELECTOR,
-                                'li.k-item')
-                for x in esc:
-                    if "99 - Dep. Negociacao" == x.text:
-                        x.click()
-                        break
+            try:
+                BloqueioDAO(navegador, item_s, quantidade_2, tipo=escolha2).processo_bloquear()
+            except Exception as e:
+                print(f"Erro ao processar o item {item_s}: {e}")
+                continue
 
             cont += 1
 
@@ -224,23 +143,6 @@ def bloqueio():
                     text=f"Bloqueio realizado com sucesso no Suspenso em Negociação: {item_s} -> Qtde: ",
                     endereco=quantidade_2, sucesso=True)
 
-            feito2 = WebDriverWait(navegador, 20).until(
-                lambda driver: driver.find_element(By.LINK_TEXT,
-                                                    'Bloquear').is_displayed() and
-                                driver.find_element(By.LINK_TEXT,
-                                                    'Bloquear').is_enabled()
-            )
-            feito2 = navegador.find_element(By.LINK_TEXT,
-                                            'Bloquear')
-            feito2.click()
-            sleep(1.5)
-            ok4 = WebDriverWait(navegador, 20).until(
-                lambda driver: driver.find_element(By.CLASS_NAME, 'hj-dlg-button').is_displayed() and
-                                driver.find_element(By.CLASS_NAME, 'hj-dlg-button').is_enabled()
-            )
-            ok4 = navegador.find_element(By.CLASS_NAME, 'hj-dlg-button')
-            ok4.click()
-            sleep(1)
 
         file_path.close()
         navegador.quit()
